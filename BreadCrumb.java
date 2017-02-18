@@ -1,4 +1,3 @@
-
 package bots.Jolly_Cooperation;
 
 import java.awt.Point;
@@ -11,16 +10,20 @@ public class BreadCrumb {
 
     Point Been;
     boolean options;
-	static int count;
-	int objectAge;
+    static int count;
+    int objectAge;
 
+    /**
+     * Sets default for BreadCrumb
+     *
+     * @param botPosition
+     * @param map
+     */
     BreadCrumb(Point botPosition, int[][] map) {
-        
-		Been = new Point(botPosition);
+        Been = new Point(botPosition);
         int optionCounter = 0;
-		count++;
-		objectAge = count;
-		
+        count++;
+        objectAge = count;
         if (map[botPosition.y][botPosition.x - 1] == 1) {
             //you can move west
             optionCounter++;
@@ -37,33 +40,62 @@ public class BreadCrumb {
             //you can move south
             optionCounter++;
         }
-
         if (optionCounter > 1) {
             options = true;
         }
     }
-    
-    public Point getBeen(){
+
+    /**
+     * Shows if bot has been in this location before
+     *
+     * @return Been
+     */
+    public Point getBeen() {
         return Been;
     }
-	
-	 public int getBeenX(){
+
+    /**
+     * Returns the x-coordinate of where the bot has been
+     *
+     * @return Been.x
+     */
+    public int getBeenX() {
         return Been.x;
     }
-	 
-	  public int getBeenY(){
+
+    /**
+     * Returns the y-coordinate of where the bot has been
+     *
+     * @return Been.y
+     */
+    public int getBeenY() {
         return Been.y;
     }
-    
-    public boolean getOptions(){
+
+    /**
+     * Returns which directions the bot can go
+     *
+     * @return options
+     */
+    public boolean getOptions() {
         return options;
     }
-	
-	public int getAge(){
+
+    /**
+     * Returns how long ago the bot was at this location
+     *
+     * @return objectAge
+     */
+    public int getAge() {
         return objectAge;
     }
-    
-	public static int getCount(){
-		return count;
-	}
+
+    /**
+     * Returns the BreadCrumb number
+     *
+     * @return count
+     */
+    public static int getCount() {
+        return count;
+    }
 }

@@ -10,7 +10,16 @@ import java.awt.Point;
  * @author Myles Lake
  */
 public class Mapping {
-	public static boolean checkSurroundings(Point botPosition, int[][] map, Compass direction) {
+
+    /**
+     * Checks to see what directions the bot can move in
+     *
+     * @param botPosition
+     * @param map
+     * @param direction
+     * @return true or false
+     */
+    public static boolean checkSurroundings(Point botPosition, int[][] map, Compass direction) {
         if (map[botPosition.y][botPosition.x - 1] == 1 && direction == Compass.WEST) {
             //you can move west
             return true;
@@ -27,4 +36,3 @@ public class Mapping {
         return false;
     }
 }
-
